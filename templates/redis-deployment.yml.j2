@@ -22,6 +22,13 @@ spec:
           volumeMounts:
             - name: redis-storage
               mountPath: /data
+          resources:
+            requests:
+              memory: "100Mi"
+              cpu: "50m"
+            limits:
+              memory: "256Mi"
+              cpu: "100m"
       volumes:
         - name: redis-storage
           {{ redis_volume_config | indent(4) }}
